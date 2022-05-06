@@ -1,35 +1,41 @@
 import React from 'react'
-
-export default function Main({ onEditProfile, onAddPlace, onEditAvatar, userName, userDescription, userAvatar  }) {
-
+import Card from './Card'
 
 
-
-
+export default function Main(props) {
     return (
         <main className="container">
             <section className="profile">
                 <div className="profile__avatar-container">
-                    <div className="profile__avatar-hover" onClick={onEditAvatar}></div>
-                    <img className="profile__avatar" alt="Аватар профиля" style={{ backgroundImage: `url(${userAvatar})` }}   />
+                    <div className="profile__avatar-hover" onClick={props.onEditAvatar}></div>
+                    <img className="profile__avatar" alt="Аватар профиля"
+                    src={props.userAvatar}
+                    />
                 </div>
 
                 <div className="profile__info">
                     <div className="profile__title">
-                        <h1 className="profile__name">{userName}</h1>
-                        <button className="profile__edit-button button" onClick={onEditProfile} type="button"
+                        <h1 className="profile__name">{props.userName}</h1>
+                        <button className="profile__edit-button button" onClick={props.onEditProfile} type="button"
                             aria-label="Редактировать профиль"></button>
                     </div>
-                    <p className="profile__bio">{userDescription}</p>
+                    <p className="profile__bio">{props.userDescription}</p>
                 </div>
-                <button className="profile__add-button button" onClick={onAddPlace} type="button"></button>
+                <button className="profile__add-button button" onClick={props.onAddPlace} type="button"></button>
             </section>
 
             <section className="elements">
                 <ul className="elements__list">
 
+                    {
+                        props.cards.map((item) => (
+                            <Card onCardClick={props.onCardClick} card={{ link: item.link, title: item.title }} />
+                        ))
+                    }
+
                 </ul>
             </section>
+
         </main>
     )
 }
