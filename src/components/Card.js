@@ -7,12 +7,12 @@ export default function Card(props) {
 
   return (
     <li className="elements__item">
-      <img className="elements__image" alt={props.card.title} src={props.card.link} onClick={handleClick} />
+      <img className="elements__image" alt={props.card.name} src={props.card.link} onClick={handleClick} />
       <div className="elements__title">
-        <h3 className="elements__name">{props.card.title}</h3>
+        <h3 className="elements__name">{props.card.name}</h3>
         <div className="elements__like-counter">
           <button className="elements__like" type="button"></button>
-          <span className="elements__counter"></span>
+          <span className="elements__counter">{props.card.likes.length}</span>
         </div>
       </div>
       <button className="elements__delete-card-button button" type="button"></button>
