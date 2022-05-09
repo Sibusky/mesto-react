@@ -8,10 +8,10 @@ import ImagePopup from './ImagePopup';
 function App() {
 
   // Объявляю переменные состояния через хук useState
-  let [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  let [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
-  let [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
-  let [selectedCard, setSelectedCard] = useState(null); // Карточка, на которую кликнули для открытия
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null); // Карточка, на которую кликнули для открытия
 
   // Функциии для изменения состояния переменных (аватар, имя профиля, описание профиля, клинутая карточка)
   const handleEditAvatarClick = () => {

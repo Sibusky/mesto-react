@@ -3,13 +3,13 @@ import Card from './Card'
 import { api } from '../utils/api.js'
 
 
-export default function Main(props) {
+export default function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
 
     // Объявляю переменные состояния через хук useState
-    let [userName, setUserName] = useState("");
-    let [userDescription, setUserDescription] = useState("");
-    let [userAvatar, setUserAvatar] = useState("");
-    let [cards, setCards] = useState([]);
+    const [userName, setUserName] = useState("");
+    const [userDescription, setUserDescription] = useState("");
+    const [userAvatar, setUserAvatar] = useState("");
+    const [cards, setCards] = useState([]);
 
     // Добавляю эффект, вызываемый при монтировании компонента, который будет 
     // совершать запрос в API за пользовательскими данными. Promise.all нужен
@@ -42,7 +42,7 @@ export default function Main(props) {
         <main className="container">
             <section className="profile">
                 <div className="profile__avatar-container">
-                    <div className="profile__avatar-hover" onClick={props.onEditAvatar}></div>
+                    <div className="profile__avatar-hover" onClick={onEditAvatar}></div>
                     <img className="profile__avatar"
                         alt="Аватар профиля"
                         src={userAvatar}
@@ -52,12 +52,12 @@ export default function Main(props) {
                 <div className="profile__info">
                     <div className="profile__title">
                         <h1 className="profile__name">{userName}</h1>
-                        <button className="profile__edit-button button" onClick={props.onEditProfile} type="button"
+                        <button className="profile__edit-button button" onClick={onEditProfile} type="button"
                             aria-label="Редактировать профиль"></button>
                     </div>
                     <p className="profile__bio">{userDescription}</p>
                 </div>
-                <button className="profile__add-button button" onClick={props.onAddPlace} type="button"></button>
+                <button className="profile__add-button button" onClick={onAddPlace} type="button"></button>
             </section>
 
             <section className="elements">
@@ -66,7 +66,7 @@ export default function Main(props) {
                     {/* Вставляю карточки */}
                     {
                         cards.map((item) => (
-                            <Card onCardClick={props.onCardClick} card={item} key={item.cardId}/>
+                            <Card onCardClick={onCardClick} card={item} key={item.cardId}/>
                         ))
                     }
 
