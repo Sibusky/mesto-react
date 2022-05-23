@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function PopupWithForm({ name, title, isOpen, children, buttonText, onClose }) {
+export default function PopupWithForm({ name, title, isOpen, children, buttonText, onClose, onSubmit }) {
   return (
     <div>
         <div className={`popup popup_place_${name} ${isOpen ? 'popup_opened' : ''}`}>
         <div className="popup__container">
-          <form className="popup__form popup__form_place_profile" name={name} noValidate>
+          <form className="popup__form popup__form_place_profile" name={name} noValidate onSubmit={onSubmit} >
             <h2 className="popup__title">{title}</h2>
             <fieldset className="popup__inputs">
               <ul className="popup__inputs-list">
