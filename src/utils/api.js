@@ -13,68 +13,79 @@ class Api {
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
-        headers: this._headers,
-      })
-        .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+      headers: this._headers,
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
   }
 
   editProfile(name, about) {
     return fetch(`${this._baseUrl}/users/me`, {
-        method: "PATCH",
-        headers: this._headers,
-        body: JSON.stringify({
-            name,
-            about,
-          })
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        about,
       })
-        .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
   }
-  
+
   addCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
-        method: "POST",
-        headers: this._headers,
-        body: JSON.stringify({
-            name,
-            link
-          })
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link
       })
-        .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
   }
 
   deleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
-        method: "DELETE",
-        headers: this._headers,        
-      })
-        .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+      method: "DELETE",
+      headers: this._headers,
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
   }
 
-  deleteLike(id) {
+  // // Функции добавлени и удаления лайка по отдельности можно убрать
+  // deleteLike(id) {
+  //   return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+  //       method: "DELETE",
+  //       headers: this._headers,        
+  //     })
+  //       .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+  // }
+
+  // addLike(id) {
+  //   return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+  //       method: "PUT",
+  //       headers: this._headers,        
+  //     })
+  //       .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+  // }
+
+  // Объединённая функция добавлени у даления лайка
+  changeLikeCardStatus(id, isLiked) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-        method: "DELETE",
-        headers: this._headers,        
-      })
-        .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+      method: isLiked ? "PUT" : "DELETE",
+      headers: this._headers,
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
   }
 
-  addLike(id) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-        method: "PUT",
-        headers: this._headers,        
-      })
-        .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-  }
 
   editAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
-        method: "PATCH",
-        headers: this._headers,
-        body: JSON.stringify({
-            avatar  // Этот параметр должен быть ссылкой
-          })
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar  // Этот параметр должен быть ссылкой
       })
-        .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
   }
 
 }
