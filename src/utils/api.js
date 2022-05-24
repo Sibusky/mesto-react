@@ -50,7 +50,7 @@ class Api {
       .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
   }
 
-  // // Функции добавлени и удаления лайка по отдельности можно убрать
+  // // Функции добавлени и удаления лайка по отдельности
   // deleteLike(id) {
   //   return fetch(`${this._baseUrl}/cards/${id}/likes`, {
   //       method: "DELETE",

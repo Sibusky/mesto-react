@@ -3,9 +3,6 @@ import PopupWithForm from "./PopupWithForm";
 
 export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
 
-    // // Стейт, в котором содержаться карточки
-    // const [cards, setCards] = useState([]);
-
     // Стейт, в котором содержатся значение инпутов
     const [name, setName] = useState('');
     const [link, setLink] = useState('');
@@ -32,7 +29,7 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
         });
     }
 
-    // Обнуляю инпут во время открытия окна
+    // Обнуляю инпуты во время открытия окна
     React.useEffect(() => {
         setName("");
         setLink("")

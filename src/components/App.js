@@ -9,18 +9,17 @@ import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
 
-
 function App() {
 
   // Объявляю переменные состояния через хук useState
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(null); // Карточка, на которую кликнули для открытия
-  const [currentUser, setCurrentUser] = useState({}); // Стейт отвечающий за текущего пользователя
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
 
-
+  // Получаю данные пользователя
   React.useEffect(() => {
     api.getProfile()
       .then((userData) => {
@@ -33,16 +32,6 @@ function App() {
       })
       .catch(err => console.log(`Ошибка: ${err}`))
   }, [])
-
-  // React.useEffect(() => {
-  //   api.getProfile()
-  //     .then((userData) => {
-  //       setUserName(userData.name);
-  //       setUserDescription(userData.about);
-  //       setUserAvatar(userData.avatar);
-  //     })
-  //     .catch(err => console.log(`Ошибка: ${err}`))
-  // }, [])
 
   // Функции для изменения состояния переменных (аватар, имя профиля, описание профиля, клинутая карточка)
   const handleEditAvatarClick = () => {
@@ -134,12 +123,11 @@ function App() {
   // Функция добавления новых карточек
   function handleAddPlaceSubmit({ name, link }) {
     api.addCard(name, link)
-    .then((newCard) => {
-      setCards([newCard, ...cards]);
-    })
+      .then((newCard) => {
+        setCards([newCard, ...cards]);
+      })
     closeAllPopups()
   }
-
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>

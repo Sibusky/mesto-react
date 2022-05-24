@@ -5,58 +5,7 @@ import { CurrentUserContext } from '../context/CurrentUserContext';
 
 export default function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCardLike, onCardDelete }) {
 
-    // Объявляю переменные состояния через хук useState
-    // const [userName, setUserName] = useState("");
-    // const [userDescription, setUserDescription] = useState("");
-    // const [userAvatar, setUserAvatar] = useState("");
-    //const [cards, setCards] = useState([]);
-
     const { currentUser } = React.useContext(CurrentUserContext); // Подписываюсь на контекст CurrentUserContext
-
-    // React.useEffect(() => {
-    //     api.getInitialCards()
-    //         .then((cardList) => {
-    //             setCards(cardList)
-
-    //             // const formattedData = cardList.map((card) => {
-    //             //     return {
-    //             //         name: card.name,
-    //             //         link: card.link,
-    //             //         likes: card.likes,
-    //             //         cardId: card._id,
-    //             //         ownerId: card.owner._id
-    //             //     }
-    //         })
-
-    //         // // Через setCards отправляю данные карточек в cards
-    //         // setCards(formattedData)
-    //         // })
-    //         .catch(err => console.log(`Ошибка: ${err}`))
-    // }, []);
-
-    // // Функция для установки лайка
-    // function handleCardLike(card) {
-    //     // Проверяю, есть ли уже лайк на этой карточке
-    //     const isLiked = card.likes.some(i => i._id === currentUser.id);
-
-    //     // Отправляю запрос в API и получаю обновлённые данные карточки
-    //     // Запись setCards((state) => state.map((c) => c._id === card._id ? newCard : c)); равносильна записи:
-    //     // setCards(cards.map((c) => c._id === card._id ? newCard : c));
-    //     api.changeLikeCardStatus(card._id, !isLiked)
-    //         .then((newCard) => {
-    //             setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    //         })
-    // }
-
-    // // Функция для удаления карточек
-    // function handleCardDelete(card) {
-    //     // Отправляю запрос на удаление карточки и получаю обновлённые данные о карточках
-    //     api.deleteCard(card._id)
-    //         .then(() => {
-    //             // Методом filter() возвращаю массив без удалённой карточки
-    //             setCards((state) => state.filter((c) => c._id !== card._id));
-    //         })
-    // }
 
     return (
         <main className="container">

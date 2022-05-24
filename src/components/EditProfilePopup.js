@@ -7,7 +7,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
     // Подписываюсь на контекст CurrentUserContext
     const { currentUser } = React.useContext(CurrentUserContext);
 
-    // Стейт, в котором содержаться значение инпута
+    // Стейт, в котором содержатся значение инпута
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
 
@@ -20,12 +20,6 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
     function handleDescriptionChange(e) {
         setDescription(e.target.value);
     };
-
-    // // Очищаю инпуты
-    // function handleClear() {
-    //     setName('');
-    //     setDescription('');
-    // }
 
     // После загрузки текущего пользователя из API
     // его данные будут использованы в управляемых компонентах.
@@ -65,7 +59,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
                     required
                     minLength="2"
                     maxLength="40"
-                    value={name}
+                    value={name || ''} // При использовании управляемых компонентов значения undefinded быть не может
                     onChange={handleNameChange} />
                 <span className="popup__input-error profilename-input-error"></span>
             </li>
@@ -78,7 +72,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
                     required
                     minLength="2"
                     maxLength="200"
-                    value={description}
+                    value={description || ''}
                     onChange={handleDescriptionChange} />
                 <span className="popup__input-error bio-input-error"></span>
             </li>

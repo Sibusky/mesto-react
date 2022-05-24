@@ -3,7 +3,6 @@ import { CurrentUserContext } from '../context/CurrentUserContext';
 
 export default function Card({ card, onCardClick, onCardLike, onCardDelete }) {
 
-
   // Подписываюсь на контекст CurrentUserContext
   const { currentUser } = React.useContext(CurrentUserContext);
 
