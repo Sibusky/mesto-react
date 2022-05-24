@@ -4,20 +4,20 @@ import { CurrentUserContext } from '../context/CurrentUserContext';
 
 export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
 
+    // Подписываюсь на контекст CurrentUserContext
+    const { currentUser } = React.useContext(CurrentUserContext);
+
     // Стейт, в котором содержаться значение инпута
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
 
-    // Подписываюсь на контекст CurrentUserContext
-    const { currentUser } = React.useContext(CurrentUserContext);
-
     // Обработчик изменения инпута имени обновляет стейт
-    function handleChangeName(e) {
+    function handleNameChange(e) {
         setName(e.target.value);
     };
-    
+
     // Обработчик изменения инпута описания обновляет стейт
-    function handleChangeDescription(e) {
+    function handleDescriptionChange(e) {
         setDescription(e.target.value);
     };
 
@@ -36,13 +36,13 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
 
     // Обработчик формы
     function handleSubmit(e) {
-        // Запрещаю браузеру переходить по адресу формы
+        // Запрещаю браузеру обновлять страницу
         e.preventDefault();
 
         // Передаю значения управляемых компонентов во внешний обработчик
         onUpdateUser({
             name: name,
-            about: description,
+            about: description
         });
     }
 
@@ -66,7 +66,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
                     minLength="2"
                     maxLength="40"
                     value={name}
-                    onChange={handleChangeName} />
+                    onChange={handleNameChange} />
                 <span className="popup__input-error profilename-input-error"></span>
             </li>
             <li className="popup__inputs-list-item">
@@ -79,7 +79,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
                     minLength="2"
                     maxLength="200"
                     value={description}
-                    onChange={handleChangeDescription} />
+                    onChange={handleDescriptionChange} />
                 <span className="popup__input-error bio-input-error"></span>
             </li>
 
