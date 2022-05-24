@@ -12,7 +12,7 @@ export default function Card({ card, onCardClick, onCardLike, onCardDelete }) {
 
   // Создаю переменную, которую после задам в `className` для кнопки удаления
   const cardDeleteButtonClassName = (
-    `elements__delete-card-button ${isOwn ? 'elements__delete-card-button_visible' : 'elements__delete-card-button_hidden'}`
+    `elements__delete-card-button ${isOwn ? ' ' : 'elements__delete-card-button_hidden'}`
   );
 
   // Определяю, есть ли у карточки лайк, поставленный текущим пользователем
@@ -55,7 +55,7 @@ export default function Card({ card, onCardClick, onCardLike, onCardDelete }) {
           <span className="elements__counter">{card.likes.length}</span>
         </div>
       </div>
-      <button className="elements__delete-card-button button"
+      <button className={cardDeleteButtonClassName}
         type="button"
         onClick={handleDelete}></button>
     </li>
