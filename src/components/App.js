@@ -85,6 +85,7 @@ function App() {
         })
         closeAllPopups()
       })
+      .catch(err => console.log(`Ошибка: ${err}`))
   }
 
   // Хук загрузки начальных карточек на страницу
@@ -108,6 +109,7 @@ function App() {
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       })
+      .catch(err => console.log(`Ошибка: ${err}`))
   }
 
   // Функция для удаления карточек
@@ -118,6 +120,7 @@ function App() {
         // Методом filter() возвращаю массив без удалённой карточки
         setCards((state) => state.filter((c) => c._id !== card._id));
       })
+      .catch(err => console.log(`Ошибка: ${err}`))
   }
 
   // Функция добавления новых карточек
@@ -125,8 +128,9 @@ function App() {
     api.addCard(name, link)
       .then((newCard) => {
         setCards([newCard, ...cards]);
+        closeAllPopups()
       })
-    closeAllPopups()
+      .catch(err => console.log(`Ошибка: ${err}`))
   }
 
   return (

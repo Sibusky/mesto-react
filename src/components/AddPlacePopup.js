@@ -17,6 +17,12 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
         setLink(e.target.value);
     };
 
+    // Обнуляю инпуты во время открытия окна
+    React.useEffect(() => {
+        setName('');
+        setLink('');
+    }, [isOpen]);
+
     // Обработчик формы
     function handleSubmit(e) {
         // Запрещаю браузеру обновлять страницу
@@ -28,12 +34,6 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
             link: link
         });
     }
-
-    // Обнуляю инпуты во время открытия окна
-    React.useEffect(() => {
-        setName("");
-        setLink("")
-    }, [isOpen]);
 
     return (
         <div>
@@ -54,7 +54,8 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
                         name="placename-input"
                         required minLength="2"
                         maxLength="30"
-                        onChange={handleNameChange} />
+                        onChange={handleNameChange}
+                        value={name} />
                     <span className="popup__input-error placename-input-error"></span>
                 </li>
                 <li className="popup__inputs-list-item">
@@ -64,7 +65,8 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
                         placeholder="Ссылка на картинку"
                         name="picturelink-input"
                         required
-                        onChange={handleLinkChange} />
+                        onChange={handleLinkChange}
+                        value={link} />
                     <span className="popup__input-error picturelink-input-error"></span>
                 </li>
             </PopupWithForm>

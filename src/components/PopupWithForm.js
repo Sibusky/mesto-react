@@ -5,7 +5,7 @@ export default function PopupWithForm({ name, title, isOpen, children, buttonTex
     <div>
         <div className={`popup popup_place_${name} ${isOpen ? 'popup_opened' : ''}`}>
         <div className="popup__container">
-          <form className="popup__form popup__form_place_profile" name={name} noValidate onSubmit={onSubmit} >
+          <form className="popup__form popup__form_place_profile" name={name} onSubmit={onSubmit} >
             <h2 className="popup__title">{title}</h2>
             <fieldset className="popup__inputs">
               <ul className="popup__inputs-list">
