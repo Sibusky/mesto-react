@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/mesto-react/static/css/main.045808d3.css",
+    "main.js": "/mesto-react/static/js/main.7cf7414d.js",
+    "static/js/787.5530211c.chunk.js": "/mesto-react/static/js/787.5530211c.chunk.js",
+    "static/media/Inter-Medium.woff": "/mesto-react/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff": "/mesto-react/static/media/Inter-Black.7bb6234314ccc72c942a.woff",
+    "static/media/Inter-Regular.woff": "/mesto-react/static/media/Inter-Regular.e148c4a1158f8cee8285.woff",
+    "static/media/Inter-Medium.woff2": "/mesto-react/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2": "/mesto-react/static/media/Inter-Black.768169b1912340d378ac.woff2",
+    "static/media/Inter-Regular.woff2": "/mesto-react/static/media/Inter-Regular.26a30a5f1103393aac70.woff2",
+    "static/media/logo.svg": "/mesto-react/static/media/logo.9acae8482e5b5b17160c46db4e2718a2.svg",
+    "static/media/like.svg": "/mesto-react/static/media/like.1ad06e85f169668a1f36.svg",
+    "index.html": "/mesto-react/index.html",
+    "static/media/delete-card-button.svg": "/mesto-react/static/media/delete-card-button.e3c42771bff3aaa52f76.svg",
+    "static/media/like-active.svg": "/mesto-react/static/media/like-active.35948469632d0421d697.svg",
+    "static/media/close-button.svg": "/mesto-react/static/media/close-button.973e77374abfb705de40.svg",
+    "static/media/edit-button-small.svg": "/mesto-react/static/media/edit-button-small.f66e917d7fb212913c9e.svg",
+    "static/media/add-button-long.svg": "/mesto-react/static/media/add-button-long.8e041299935e2fbbe15e.svg",
+    "static/media/add-button.svg": "/mesto-react/static/media/add-button.13997fdf54b4cb323817.svg",
+    "static/media/edit-button.svg": "/mesto-react/static/media/edit-button.af236f6cf67005f1d7aa.svg",
+    "static/media/edit-avatar.svg": "/mesto-react/static/media/edit-avatar.ae1a976ddb506239e9f0.svg",
+    "static/media/close-button-small.svg": "/mesto-react/static/media/close-button-small.622e8cdafa2222aa7c54.svg",
+    "main.045808d3.css.map": "/mesto-react/static/css/main.045808d3.css.map",
+    "main.7cf7414d.js.map": "/mesto-react/static/js/main.7cf7414d.js.map",
+    "787.5530211c.chunk.js.map": "/mesto-react/static/js/787.5530211c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.045808d3.css",
+    "static/js/main.7cf7414d.js"
+  ]
+}
